@@ -2,26 +2,32 @@ import VoiceChat from "@/components/VoiceChat";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-[100dvh] w-full overflow-hidden bg-black text-white selection:bg-white/20 touch-none">
       {/* Hero Section */}
       <div
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/hero-bg.webp)" }}
+        className="relative h-full w-full flex flex-col items-center justify-center p-4 md:p-6"
+        style={{ 
+          backgroundImage: "url(/hero-bg.webp)", 
+          backgroundSize: "cover",
+          backgroundPosition: "center"
+        }}
       >
-        <div className="absolute inset-0 bg-background/60" />
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-          <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-chart-3 bg-clip-text text-transparent">
-            SynapChat
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-body">
-            Experience natural voice conversations with AI
-          </p>
-          <p className="text-lg text-foreground/80 mb-12 max-w-2xl mx-auto">
-            Start a natural voice conversation with AI. Click to begin and speak
-            naturally.
-          </p>
-
-          <VoiceChat />
+        {/* Dark overlay for Readability */}
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-[2px]" />
+        
+        <div className="relative z-10 flex flex-col items-center max-w-2xl mx-auto space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+          <div className="text-center space-y-2 md:space-y-4">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent drop-shadow-sm px-2">
+              SynapChat
+            </h1>
+            <p className="text-xs sm:text-sm md:text-base text-white/40 uppercase tracking-[0.2em] font-medium">
+            Start a natural voice conversation with AI. Click to begin and speak naturally.
+            </p>
+          </div>
+         
+          <div className="w-full max-w-[90vw] md:max-w-md aspect-[4/5] md:aspect-auto">
+            <VoiceChat />
+          </div>
         </div>
       </div>
     </div>
